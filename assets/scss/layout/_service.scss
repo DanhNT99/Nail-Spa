@@ -1,0 +1,231 @@
+.service {
+    padding: 0px 0px 60px 0px;
+    .serviceTitle {
+        @include title;
+    }
+    .serviceLeft {
+        .serviceTabGruop {
+            @include displayFlex(space-between);
+            .serviceTab {
+                text-align: center;
+                cursor: pointer;
+                &.serviceTabActive {
+                    .serviceTabName {
+                        color: $color1;
+                    }
+                }
+                .serviceTabImg {
+                    width: 50px;
+                    height: 50px;
+                }
+                .serviceTabName {
+                    font-size: 20px;
+                    margin-top: 20px;
+                    @include transition(0.5s);
+                }
+            }
+        }
+        .serviceContentGruop {
+            position: relative;
+            height: 250px;
+            margin-top: 20px;
+            .serviceContent{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                visibility: hidden;
+                @include transition(0.5s);
+                .serviceContainsText {
+                    background-color: $color2;
+                    .serviceContentTitle {
+                        color: $color1;
+                        margin: 20px 0px;
+                    }
+                    .serviceContentText {
+                        color: $color3;
+                    }
+                    .serviceContentBtn {
+                        margin-bottom: 20px;
+                    }
+                }
+                .serviceContentImg {
+                    width: 100%;
+                    height: 250px;
+                    object-fit: cover;
+                }
+            }
+            .serviceContentActive {
+                opacity: 1;
+                visibility: inherit;
+            }
+        }
+  
+
+    }
+
+    .serviceContainsImg {
+        width: 100%;
+        height: 100%;
+
+        .serviceBtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            outline: none;
+            width: 70px;
+            height: 70px;
+            font-size: 30px;
+            border-radius: 100%;
+            background: rgba($color: $color3, $alpha: 0.7);
+            border: 2px solid $color3;
+            color: $color1;
+        }
+        .serviceVideo {
+            position: fixed;
+            width: 80%;
+            height: 80%;
+            top: 50%;
+            left: 50%;
+            transform-origin: 50px 50px;
+            transform: scaleY(0) translate(-50%, -50%);
+            z-index: 1000;
+            @include transition(0.5s);
+            visibility: hidden;
+            opacity: 0;
+
+            &.showVideo {
+                opacity: 1;
+                visibility: inherit;
+                transform: scaleY(1) translate(-50%, -50%);
+            }
+        }
+        .serviceOverlay {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: $color4, $alpha: 0.8);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(0.5s);
+            &.showOverlay {
+                opacity: 1;
+                visibility: inherit;
+            }
+            .serviceOverlayIcon {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                color: $color3;
+                font-size: 30px;
+                cursor: pointer;
+                @include transition(0.5s);
+                &:hover {
+                    color: $color1;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+
+    .service {
+        .serviceRight {
+            margin-top: 20px;
+            height: 280px;
+        }
+    }
+
+}
+@media (max-width: 767px) {
+
+    .service {
+        padding-bottom: 40px;
+        .serviceLeft{
+
+            .serviceContentGruop {
+                margin-top: 10px;
+
+                .serviceContent {
+
+                    .serviceContainsText {
+                        margin-left: calc( -100% / 6);
+                        background-color: rgba($color: $color2, $alpha: 0.8);
+
+                        .serviceContentTitle {
+                            margin-top: 10px;
+                            font-size: 26px;
+                        }
+
+                        .serviceContentText {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media (max-width: 575px) {  
+}
+
+@media (max-width: 320px) {
+
+    .service {
+
+        .serviceContains {
+
+            .serviceContentGruop {
+                margin-top: 10px;
+
+                .serviceContent {
+
+                    .serviceContainsText {
+                        margin-left: calc( -100% / 6);
+                        background-color: rgba($color: $color2, $alpha: 0.8);
+
+                        .serviceContentTitle {
+                            margin-top: 10px;
+                            font-size: 26px;
+                        }
+
+                        .serviceContentText {
+                            max-height: 108px;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 280px) {
+    .service {
+
+        .serviceContains {
+
+            .serviceContentGruop {
+            
+                .serviceContent {
+                    
+                    .serviceContainsText  {
+                        .serviceContentBtn {
+                            padding: 5px 15px;
+                        }
+                       
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,172 @@
+.lastNew {
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .lastNewTitle {
+        @include title;
+    }
+
+    .lastNewBtn {
+        margin: 20px auto 0px auto;
+        color: $color3;
+
+        &::after {
+            transform: skew(0deg) scale(1);
+            background-color: $color1;
+          
+        }
+        &:hover {
+            &::after {
+                background: $color2;
+            }
+        }
+    }
+
+    .lastNewSlide {
+
+        .btnLastNewSlide {
+
+            position: absolute;
+            top: 100%;
+            left: 15px;
+            transform: translate(0px,10px);
+            background: $color2;
+            width: 30px;
+            height: 30px;
+            color: $color3;
+            outline: none;
+            border: none;
+
+            &.right {
+                transform: translate(110%,10px);
+            }
+        }
+    }
+
+}
+
+
+.lastNewItem {
+    &:hover {
+        .lastNewContainsImg {
+            .lastNewImg {
+                opacity: 0.9;
+            }
+            .box {
+                &.boxLeft, &.boxRight{
+
+                    &::before {
+                        width: 100%;
+                    }
+                    &::after {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .lastNewContent {
+
+            .lastNewItemTitle {
+                color: $color1;
+            }
+        }
+
+    }
+
+    .lastNewContainsImg {
+        z-index: -1;
+        position: relative;
+
+        .lastNewImg {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            opacity: 1;
+            @include transition(0.5s);
+        }
+
+        .box {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+
+            &.boxLeft, &.boxRight {
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 0px;
+                    height: 1px;
+                    top: 0px;
+                    background-color: $color1;
+                    @include transition(0.5s);
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 1px;
+                    height: 0px;
+                    top: 0px;
+                    background-color: $color2;
+                    @include transition(0.5s);
+                    
+                }
+            }
+
+            &.boxRight {
+                &::before {
+                    top: 100%;
+                    background-color: $color2;
+                    transition-delay: 0.5s;
+                }
+                &::after {
+                    right: 0px;
+                    background-color: $color1;
+                    transition-delay: 0.5s;
+                }
+            }
+        }
+    }
+
+    .lastNewContent {
+        background-color: $color2;
+        padding: 15px;
+      
+        .lastNewItemTitle {
+         font-size: 20px;
+         line-height: 29px;
+         color: $color3;
+         @include transition(0.5s);
+        }
+
+        .lastNewItemBtn {
+            margin: 10px auto 10px auto;
+            padding: 5px 15px;
+        }
+
+        .lastNewContainsDate {
+            @include displayFlex(left);
+
+            .lastNewDate {
+                color: $color3;
+                padding-right: 10px;
+                border-right: 1px solid $color3;
+                margin: 0px 10px 0px 0px;
+                font-size: 14px;
+            }
+
+            .lastNewName {
+                color: $color1;
+                margin: 0px 4px 0px 0px;
+            }
+        }
+    }
+
+}

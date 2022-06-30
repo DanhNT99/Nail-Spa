@@ -1,0 +1,13 @@
+@import '../abstracts/variable';
+
+@font-face {
+    font-family: $nameFont1;
+    src: url(../fonts/montserrat/#{$nameFont1}-Regular.ttf);
+    font-weight: 400;
+}
+
+
+body {
+    font-family: $nameFont1;
+    font-weight: 400;
+}

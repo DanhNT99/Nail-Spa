@@ -1,0 +1,109 @@
+
+//-------------modal search-----------
+
+.modelSearch {
+    max-width: 90%;
+    margin-left: 5%;
+    background-color: $color3;
+    border-radius: 7px;
+}
+
+.modalSearchContent {
+ 
+    padding: 20px;
+
+    .modalSearchContains {
+        perspective: 900px;        
+
+        .modalSearchImg {
+            width: 100px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .modalSearchForm {
+            margin: -18px auto 0px auto;
+            max-width: 600px;
+            height: 45px;
+            display: flex;
+            transform-origin: 50% 50%;
+            transform: translateY(-10px);
+
+
+            .modalSearchInput {
+                border: none;
+                outline: none;
+                background-color: $color2;
+                width: 100%;
+                height: 100%;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                padding: 20px 15px;
+                color: $color3;
+
+                &::placeholder {
+                    color: $color3;
+                    opacity: 0.3;
+                }
+            }
+
+            .modalSearchBtn {
+                border: none;
+                outline: none;
+                background: $color1;
+                color: $color3;
+                margin-left: -5px;
+                padding: 0px 15px;
+                height: 100%;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                @include transition(0.5s);
+                &:hover {
+                    color: $color2;
+                }
+            }
+        }
+
+        .totterFormSearch {
+            animation: totter 1s forwards ease;
+        }
+
+        @keyframes totter {
+            50% {
+                transform: rotateY(30deg);
+            }
+            75% {
+                transform: rotateY(-30deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        .modalSearchClose {
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: $color1;
+            border-radius: 100%;
+            text-align: center;
+            cursor: pointer;
+            @include transition(0.5s);
+            color: $color3;
+            &:hover {
+                color: $color2;
+            }
+            i {
+                
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+}
+//-------------modal search-----------

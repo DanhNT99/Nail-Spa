@@ -1,0 +1,159 @@
+.about {
+    padding: 60px 0px;
+}
+
+@media (max-width: 991px) {
+    .about {
+        padding: 40px 0px;
+    }
+}
+
+.aboutTitle {
+    @include title;
+}
+
+@media (max-width: 767px) {
+    
+    .aboutTitle {
+        margin-bottom: 20px;
+    }
+}
+
+.aboutContainsImg {
+    position: relative;
+    width: 100%;
+    height: 400px;
+
+    .aboutBox {
+        position: absolute;
+        top: 0px;
+        width: 90%;
+        height: 90%;
+        border: 3px solid $color2;
+        z-index: 2;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 27px;
+            height: 3px ;
+            width: 483px;
+            @include widthCalc('100% - 24px');
+            background-color: $color1;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 27px;
+            right: -3px;
+            @include heightCalc('100% - 24px');
+            width: 3px;
+            background-color: $color1;
+        }
+    }
+
+    .aboutImg {
+        position: absolute;
+        object-fit: cover;
+        top: 30px;
+        left: 30px;
+        width: 90%;
+        height: 93%;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .aboutContainsImg {
+        position: relative;
+        width: 100%;
+        height: 300px;
+    
+        .aboutBox {
+            width: 100%;
+            height: 100%;
+    
+            &::before {
+               left: 0;
+              
+               @include widthCalc('100% + 3px')
+            }
+    
+            &:after {
+                top: 0px;
+                height: 100%;
+            }
+        }
+        .aboutImg {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+        }
+    }
+}
+
+.aboutContent {
+    perspective: 1500px;
+}
+
+.aboutRight {
+
+    background: $color1;
+    background-clip: padding-box;
+    @include displayFlex(left);
+
+    .aboutRightContains {
+        padding: 15px 0px;
+
+        .aboutRightTitle {
+            font-size: 45px;
+            font-weight: 800;
+            z-index: 4;
+            color: $color2;
+        }
+
+        .aboutRightDetail {
+            color: $color3;
+        }
+
+    }
+
+    .aboutRightBtn {
+        &:hover {
+            &::after {
+                background-color: $color2;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .aboutRight {
+
+        .aboutRightContains {
+    
+            .aboutRightTitle {
+                font-size: 30px;
+                line-height: 39px;
+            }
+            .aboutRightDetail {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .aboutRight {
+        margin-top: 30px;
+    }
+}
+@media (max-width: 575px) {
+    .aboutRight {
+        margin-top: 20px;
+    }
+}
